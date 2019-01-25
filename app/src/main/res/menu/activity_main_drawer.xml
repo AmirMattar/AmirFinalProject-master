@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/NewBooks"
+            android:icon="@drawable/ic_new_books"
+            android:title="New Books" />
+        <item
+            android:id="@+id/Books"
+            android:icon="@drawable/ic_all_books"
+            android:title="Books" />
+
+        <item
+            android:id="@+id/BestSellers"
+            android:icon="@drawable/ic_new_york"
+            android:title="BestSellers" />
+
+
+
+    </group>
+
+
+</menu>
