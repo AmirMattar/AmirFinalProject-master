@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class OpenPage extends AppCompatActivity{
+public class OpenPage extends AppCompatActivity {
 
     ListView lvSubCategory;
     ArrayList<Book> arrayList;
@@ -22,10 +22,10 @@ public class OpenPage extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_page);
 
-        lvSubCategory =findViewById(R.id.lvSubCategory);
+        lvSubCategory = findViewById(R.id.lvSubCategory);
 
         String category = getIntent().getStringExtra("categories");
-        Toast.makeText(this,  getIntent().getStringExtra("categories"), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getIntent().getStringExtra("categories"), Toast.LENGTH_LONG).show();
         fillSubCategoriesList(category);
 
         BookCustomAdapter adapter = new BookCustomAdapter(this, R.layout.book_custom_row, arrayList);
@@ -33,21 +33,32 @@ public class OpenPage extends AppCompatActivity{
 
 
     }
-    public void fillSubCategoriesList(String category){
+
+    public void fillSubCategoriesList(String category) {
         arrayList = new ArrayList<>();
 
 
-       if(category.equals("Science fiction")){
-           arrayList.add(new Book("amir fiction",10,"perfect",R.drawable.as));
-           arrayList.add(new Book("amir fiction",10,"perfect",R.drawable.as));
+        if (category.equals("Science fiction")) {
+            arrayList.add(new Book("LOTR", 10, "perfect", R.drawable.lotr));
+            arrayList.add(new Book("The Witcher", 10, "perfect", R.drawable.thewicther));
 
-        }else if(category.equals("Action and Adventure")){
-           arrayList.add(new Book("amir action",10,"perfect",R.drawable.action));
-           arrayList.add(new Book("amir action",10,"perfect",R.drawable.action));
+        } else if (category.equals("Action and Adventure")) {
+            arrayList.add(new Book("Harry Potter", 10, "perfect", R.drawable.hp));
+            arrayList.add(new Book("Game Of Thrones", 10, "perfect", R.drawable.got));
+
+        } else if (category.equals("Romance")) {
+            arrayList.add(new Book("The Bronze Horseman", 10, "perfect", R.drawable.bronze));
+            arrayList.add(new Book("Looking For alaska", 10, "perfect", R.drawable.alaska));
+
+        }else if (category.equals("Comics")) {
+            arrayList.add(new Book("Kingdom", 10, "perfect", R.drawable.kingdom));
+            arrayList.add(new Book("Bone", 10, "perfect", R.drawable.bone));
+
+        }else if (category.equals("Mystery")) {
+            arrayList.add(new Book("Sherlock Holmes", 10, "perfect", R.drawable.sherlock));
+            arrayList.add(new Book("Percy Jackson", 10, "perfect", R.drawable.percy));
 
         }
-
-    }
 /*
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -55,4 +66,6 @@ public class OpenPage extends AppCompatActivity{
         i.putExtra("book", arrayList.get(position).toString());
         startActivity(i);
     }*/
+    }
 }
+
