@@ -6,8 +6,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailedBookActivity extends AppCompatActivity {
-TextView WriterInfo, BookInfo;
-ImageView DetailImage;
+    TextView BookInfo;
+
 
 
     @Override
@@ -15,9 +15,13 @@ ImageView DetailImage;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_book);
 
-        WriterInfo=findViewById(R.id.WriterInfo);
+        Book book = (Book) getIntent().getSerializableExtra("book");
+
+
         BookInfo=findViewById(R.id.BookInfo);
-        DetailImage=findViewById(R.id.DetailImage);
+
+
+        BookInfo.setText(book.getName());
 
     }
 }

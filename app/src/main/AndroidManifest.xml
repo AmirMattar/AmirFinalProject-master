@@ -23,7 +23,7 @@
         </activity>
         <activity android:name=".SignUp" />
         <activity android:name=".FireActivity" />
-        <activity android:name=".OpenPage" />
+        <activity android:name=".CategoryChoose" />
         <activity android:name=".DetailedBookActivity" />
         <activity android:name=".CameraGalleryActivity" />
         <activity android:name=".MainActivity" />
