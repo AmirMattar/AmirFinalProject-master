@@ -40,8 +40,8 @@ public class BookCustomAdapter extends ArrayAdapter<Book> {
             ImageView imageView = v.findViewById(R.id.imageView2);
             imageView.setImageResource(p.getImage());
 
-            Button btAdd = v.findViewById(R.id.btAddToWish);
-          /*  btAdd.setOnClickListener(new View.OnClickListener() {
+            /*Button btAdd = v.findViewById(R.id.btAddToWish);
+            btAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), "added to wishlist", Toast.LENGTH_SHORT).show();

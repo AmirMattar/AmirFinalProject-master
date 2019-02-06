@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class CategoryChoose extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ListView lvBookList;
-    ArrayList<Book> arrayList;
+    ArrayList<Book> arrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +35,14 @@ public class CategoryChoose extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    public void fillSubCategoriesList(String category) {
-        arrayList = new ArrayList<>();
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent i=new Intent(this,DetailedBookActivity.class);
+        i.putExtra("book", arrayList.get(position));
+        startActivity(i);
+    }
 
+    public void fillSubCategoriesList(String category) {
 
         if (category.equals("Science fiction")) {
             arrayList.add(new Book("LOTR", 10, "perfect", R.drawable.lotr));
@@ -62,12 +67,6 @@ public class CategoryChoose extends AppCompatActivity implements AdapterView.OnI
         }
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent i=new Intent(this,DetailedBookActivity.class);
-        i.putExtra("book", arrayList.get(position).toString());
-        startActivity(i);
-    }
 }
 
 
