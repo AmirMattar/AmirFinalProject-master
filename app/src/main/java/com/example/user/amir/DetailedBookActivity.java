@@ -6,8 +6,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailedBookActivity extends AppCompatActivity {
-    TextView BookInfo;
-
+    TextView BookName,BookRating,BookSummary;
+    ImageView BookImage;
 
 
     @Override
@@ -18,10 +18,16 @@ public class DetailedBookActivity extends AppCompatActivity {
         Book book = (Book) getIntent().getSerializableExtra("book");
 
 
-        BookInfo=findViewById(R.id.BookInfo);
+        BookName=findViewById(R.id.BookName);
+        BookImage=findViewById(R.id.BookImage);
+        BookRating=findViewById(R.id.BookRating);
+        BookSummary=findViewById(R.id.BookSummary);
 
 
-        BookInfo.setText(book.getName());
+        BookName.setText(book.getName());
 
+        BookImage.setImageResource(book.getImage());
+        BookRating.setText(book.getRating()+"");
+        BookSummary.setText(book.getSummary());
     }
 }

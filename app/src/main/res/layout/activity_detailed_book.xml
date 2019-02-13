@@ -3,13 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".DetailedBookActivity">
 
-    <TextView
-        android:id="@+id/BookInfo"
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:text="hi" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/BookName"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/BookRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="30sp" />
+
+    </TableRow>
+
+    <ImageView
+        android:id="@+id/BookImage"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/action" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/BookSummary"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="TextView"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
