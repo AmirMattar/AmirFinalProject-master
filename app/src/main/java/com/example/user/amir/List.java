@@ -28,7 +28,7 @@ public class List extends AppCompatActivity implements AdapterView.OnItemClickLi
         arrayList.add(new Item(R.drawable.action,"Action and Adventure"));
         arrayList.add(new Item(R.drawable.crime,"Mystery"));
         arrayList.add(new Item(R.drawable.comics,"Comics"));
-        arrayList.add(new Item(R.drawable.aromance,"Romance"));
+        arrayList.add(new Item(R.drawable.history,"Histroy"));
 
 
 
