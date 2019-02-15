@@ -65,9 +65,7 @@ public class CategoryChoose extends AppCompatActivity implements AdapterView.OnI
             arrayList.add(new Book("Bone", 10, "..", R.drawable.bone));
 
         } else if (category.equals("Mystery")) {
-            arrayList.add(new Book("Sherlock Holmes", 10, "Miss Mary Morstan arrives at 221B, Baker Street to request help with the mystery of her missing father, her anonymous gifts of pearls and a letter requesting her to meet an unknown person that evening. Holmes takes on her case and the adventure begins.\n" +
-                    "\n" +
-                    "Watson narrates the tale that sees the detective tracking down hidden treasure and murderers. By the end of the story the criminals are either dead or arrested, and Miss Mary Morstan and Watson are engaged to be married.", R.drawable.sherlock));
+            arrayList.add(new Book("Sherlock Holmes", 10, "..", R.drawable.sherlock));
             arrayList.add(new Book("Percy Jackson", 10, "..", R.drawable.percy));
 
         }
