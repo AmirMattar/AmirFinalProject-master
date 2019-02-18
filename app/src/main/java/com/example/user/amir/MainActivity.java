@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    DrawerLayout drawer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +26,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
 
     }
@@ -87,22 +80,12 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
 
-            case R.id.NewBooks:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new BooksFragment()).commit();
-                break;
-            case R.id.Books:
-                Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.BestSellers:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new BestSellerFragment()).commit();
-                break;
+
 
         }
 
 
-        drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 }
