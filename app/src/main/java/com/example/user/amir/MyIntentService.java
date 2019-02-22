@@ -17,17 +17,17 @@ import com.example.user.amir.MainActivity;
  */
 public class MyIntentService extends IntentService {
 
-    private static final int NOTIFICATION_ID = 3;
+    private static final int NOTIFICATION_ID = 2;
 
     public MyIntentService() {
-        super("MyNewIntentService");
+        super("MyIntentService");
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         Notification.Builder builder = new Notification.Builder(this);
-        builder.setContentTitle("My Title");
-        builder.setContentText("This is the Body");
+        builder.setContentTitle("Praise The Sun");
+        builder.setContentText("gerorge haddad homo");
         builder.setSmallIcon(R.drawable.bookicon);
         Intent notifyIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);

@@ -1,5 +1,8 @@
 package com.example.user.amir;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,6 +19,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    private static final int NOTIFICATION_REMINDER_NIGHT = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +29,12 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
-
+        Intent notifyIntent = new Intent(this,MyReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast
+                (this, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  System.currentTimeMillis(),
+                1000 * 60 * 60 * 24, pendingIntent);
 
     }
 
@@ -70,6 +77,14 @@ public class MainActivity extends AppCompatActivity
                 GoToAlert = new Intent(getApplicationContext(), AlertDialogActivity.class);
                 startActivity(GoToAlert);
                 break;
+
+            case R.id.camera:
+                GoToAlert = new Intent(getApplicationContext(), CameraGalleryActivity.class);
+                startActivity(GoToAlert);
+                break;
+
+
+
         }
         return true;
     }
