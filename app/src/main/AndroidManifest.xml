@@ -12,14 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
-
-
-
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".List"
+            android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +26,7 @@
         <activity android:name=".CategoryChoose" />
         <activity android:name=".DetailedBookActivity" />
         <activity android:name=".CameraGalleryActivity" />
-        <activity android:name=".List" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".AlertDialogActivity" />
         <activity android:name=".SharedActivity" />
         <activity android:name=".SignIn" />
@@ -46,7 +41,7 @@
             android:name=".MyIntentService"
             android:exported="false" />
 
-        <activity android:name=".WishListActivity"></activity>
+        <activity android:name=".WishlistActivity"></activity>
     </application>
 
 </manifest>
