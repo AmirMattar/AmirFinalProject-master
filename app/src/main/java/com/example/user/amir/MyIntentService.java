@@ -26,8 +26,8 @@ public class MyIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Notification.Builder builder = new Notification.Builder(this);
-        builder.setContentTitle("Praise The Sun");
-        builder.setContentText("gerorge haddad homo");
+        builder.setContentTitle("Good Morning");
+        builder.setContentText("new books every day");
         builder.setSmallIcon(R.drawable.bookicon);
         Intent notifyIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);

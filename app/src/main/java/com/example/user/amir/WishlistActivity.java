@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 
@@ -26,20 +27,23 @@ public class WishlistActivity extends AppCompatActivity {
     String userId = currentUser.getUid();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Users/"+userId);
-
+    WishListCustomAdapter arrayAdapter;
+    ArrayList<Book> wishlists = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wish_list);
 
-        //need to add list view
-        //defie arraylist
+        wishlist = (ListView) findViewById(R.id.wishlistview) ;
+
+        arrayAdapter = new WishlistCustomAdapter(this,R.layout.custom_row,wishlist);
+        wishlist.setAdapter(arrayAdapter);
+        wishlist.setOnItemClickListener(this);
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Book book = dataSnapshot.getValue(Book.class);
-
 
             }
 
