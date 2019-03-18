@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 
-public class WishlistActivity extends AppCompatActivity {
+public class WishlistActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     ListView wishlist;
 
     //get the current user logged in, then get the UID set by the firebase
@@ -26,9 +28,10 @@ public class WishlistActivity extends AppCompatActivity {
     FirebaseUser currentUser = mAuth.getCurrentUser();
     String userId = currentUser.getUid();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference reference = database.getReference("Users/"+userId);
+    DatabaseReference reference = database.getReference("WishList/"+userId);
     WishListCustomAdapter arrayAdapter;
     ArrayList<Book> wishlists = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,7 @@ public class WishlistActivity extends AppCompatActivity {
 
         wishlist = (ListView) findViewById(R.id.wishlistview) ;
 
-        arrayAdapter = new WishlistCustomAdapter(this,R.layout.custom_row,wishlist);
+        arrayAdapter = new WishListCustomAdapter(this,R.layout.custom_row,wishlists);
         wishlist.setAdapter(arrayAdapter);
         wishlist.setOnItemClickListener(this);
 
@@ -44,7 +47,8 @@ public class WishlistActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Book book = dataSnapshot.getValue(Book.class);
-
+                wishlists.add(book);
+                arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -67,5 +71,10 @@ public class WishlistActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
     }
 }

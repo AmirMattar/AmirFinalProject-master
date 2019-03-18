@@ -31,6 +31,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in);
+
         signin = findViewById(R.id.signin);
         signin.setOnClickListener(this);
 
@@ -67,7 +68,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent i = new Intent(getApplication(), List.class);
+                            Intent i = new Intent(getApplication(), MainActivity.class);
                             startActivity(i);
                             //updateUI(user);
                         } else {

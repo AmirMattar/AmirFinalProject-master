@@ -16,7 +16,9 @@ public class Book implements Serializable{
         this.image = image;
         this.isInWishList = false;
     }
+public Book(){
 
+}
     public String getName() {
         return name;
     }

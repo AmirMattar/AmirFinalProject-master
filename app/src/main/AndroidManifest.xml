@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".List"
+            android:name=".SignIn"
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,8 +28,11 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".AlertDialogActivity" />
         <activity android:name=".SharedActivity" />
-        <activity android:name=".SignIn" />
+        <activity android:name=".List" />
         <activity android:name=".AboutProject" />
+        <activity android:name=".WishlistActivity" />
+
+
 
         <receiver
             android:name=".MyReceiver"
@@ -40,9 +43,7 @@
             android:name=".MyIntentService"
             android:exported="false" />
 
-        <activity android:name=".WishlistActivity" />
-        <activity android:name=".WishListCustomAdapter" />
-        <activity android:name=".WishListCustomAdpater"></activity>
+
     </application>
 
 </manifest>
