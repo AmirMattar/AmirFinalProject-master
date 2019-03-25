@@ -3,13 +3,17 @@ package com.example.user.amir;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +25,9 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CameraGalleryActivity extends AppCompatActivity implements View.OnClickListener {
+public class
+
+CameraGalleryActivity extends AppCompatActivity implements View.OnClickListener {
     Button gallery, camera;
     ImageView cameraimage;
 
@@ -43,6 +49,10 @@ public class CameraGalleryActivity extends AppCompatActivity implements View.OnC
 
         cameraimage = findViewById(R.id.cameraimage);
 
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+            //if you dont have required permissions ask for it (only required for API 23+)
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+        }
     }
 
     @Override
@@ -108,6 +118,32 @@ public class CameraGalleryActivity extends AppCompatActivity implements View.OnC
             Toast.makeText(this,"Failed to save image",Toast.LENGTH_SHORT).show();
         }
         return filePath;
+    }
+    @Override // android recommended class to handle permissions
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Log.d("","granted");
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.uujm
+                    Toast.makeText(CameraGalleryActivity.this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
+
+                    //app cannot function without this permission for now so close it...
+                    onDestroy();
+                }
+                return;
+            }
+
+            // other 'case' line to check fosr other
+            // permissions this app might request
+        }
     }
 }
 

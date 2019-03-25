@@ -45,10 +45,15 @@ public class DetailedBookActivity extends AppCompatActivity implements View.OnCl
 
         addwish=findViewById(R.id.addwish);
         addwish.setOnClickListener(this);
+
+        
     }
 
     @Override
     public void onClick(View view) {
         reference.push().setValue(book);
     }
+
+
+
 }
