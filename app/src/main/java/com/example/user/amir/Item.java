@@ -33,3 +33,4 @@ public class Item implements Serializable {
         return name;
     }
 }
+//takes name and image,describes the items in the listview.

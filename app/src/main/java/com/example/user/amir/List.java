@@ -30,19 +30,16 @@ public class List extends AppCompatActivity implements AdapterView.OnItemClickLi
         arrayList.add(new Item(R.drawable.comics,"Comics"));
         arrayList.add(new Item(R.drawable.history,"Histroy"));
 
+//adding items(categorys) to the list
 
 
 
-
-      /*  arrayList.add("Drama");
-        arrayList.add("Action and Adventure");
-        arrayList.add("Mystery");
-        arrayList.add("Romance");*/
 
 
         ArrayAdapter=new CustomAdapter2(this,R.layout.custom_row,arrayList);
         Lvbooks.setAdapter(ArrayAdapter);
         Lvbooks.setOnItemClickListener(this);
+        //takes info about the item and makes it an item in the list view.
     }
 
     @Override

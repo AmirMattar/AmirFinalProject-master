@@ -32,7 +32,7 @@ public class BookCustomAdapter extends ArrayAdapter<Book> {
             v= LayoutInflater.from(mContext).inflate(resourceLayout,parent,false);
         }
         Book p = getItem(position);
-
+//this code inflates the class into the xml.
         if(p != null){
             TextView tvName=v.findViewById(R.id.tvBookName);
             tvName.setText(p.getName());
@@ -52,3 +52,4 @@ public class BookCustomAdapter extends ArrayAdapter<Book> {
 
     }
 }
+//makes an item based on the information he gets and puts it on the listview.

@@ -59,3 +59,4 @@ public Book(){
         isInWishList = inWishList;
     }
 }
+//takes info and puts it in the book information page.

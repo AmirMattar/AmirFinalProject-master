@@ -37,18 +37,21 @@ public class MainActivity extends AppCompatActivity
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  System.currentTimeMillis(),
                 1000 * 60 * 60 * 24, pendingIntent);
+//notifications
+
+
 
 
         cbutton=findViewById(R.id.cbutton);
 
         cbutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {//button that sends the user to the category list
                 Intent i=new Intent(getApplication(),List.class);
                 startActivity(i);
             }
         });
-        wishbutton=findViewById(R.id.wishbutton);
+        wishbutton=findViewById(R.id.wishbutton);//button that sends the user to the wishlist page
         wishbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main, menu);//opens the option menu
         return true;
     }
 
@@ -82,15 +85,15 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
 
         Intent GoToAlert = new Intent(getApplicationContext(), AlertDialogActivity.class);
-        Intent GoToAbout = new Intent(getApplicationContext(), AboutProject.class);
+        Intent GoToAbout = new Intent(getApplicationContext(), AboutProject.class);//sends user to the about page
 
         switch (item.getItemId()) {
             case R.id.action_settings:
-                GoToAlert = new Intent(getApplicationContext(), AlertDialogActivity.class);
+                GoToAlert = new Intent(getApplicationContext(), AlertDialogActivity.class);//sends user to the alert page
                 startActivity(GoToAlert);
                 break;
             case R.id.about:
-                GoToAlert = new Intent(getApplicationContext(), AboutProject.class);
+                GoToAlert = new Intent(getApplicationContext(), AboutProject.class);//sends user to the about page
                 startActivity(GoToAbout);
                 break;
             case R.id.sign_out:
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.camera:
-                GoToAlert = new Intent(getApplicationContext(), CameraGalleryActivity.class);
+                GoToAlert = new Intent(getApplicationContext(), CameraGalleryActivity.class);//sends user to the camera page
                 startActivity(GoToAlert);
                 break;
 

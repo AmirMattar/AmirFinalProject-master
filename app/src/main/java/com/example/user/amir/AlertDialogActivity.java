@@ -23,13 +23,13 @@ public class AlertDialogActivity extends AppCompatActivity implements DialogInte
 
         builder.setMessage("Are you sure");
 
-        builder.setCancelable(true);
+        builder.setCancelable(true);//nothing happens if clicked on no
 
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent i = new Intent(AlertDialogActivity.this, SignIn.class);
-                startActivity(i);
+                startActivity(i);//if clicked on the yes button on the warning app will return to the sign in page
             }
         });
 
@@ -38,6 +38,7 @@ public class AlertDialogActivity extends AppCompatActivity implements DialogInte
         AlertDialog dialog=builder.create();
 
         dialog.show();
+        //activates the warning
     }
 
     @Override

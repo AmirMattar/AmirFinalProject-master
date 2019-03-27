@@ -42,3 +42,4 @@ public class CustomAdapter2 extends ArrayAdapter<Item> {
 
     }
 }
+//makes an item based on the information he gets and puts it on the listview.

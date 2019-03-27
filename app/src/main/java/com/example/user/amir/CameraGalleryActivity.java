@@ -31,10 +31,14 @@ CameraGalleryActivity extends AppCompatActivity implements View.OnClickListener 
     Button gallery, camera;
     ImageView cameraimage;
 
-    Bitmap bitmap;
+    Bitmap bitmap;/*A bitmap is a type of memory organization or image file
+format used to store digital images.
+The term bitmap comes from the computer programming
+terminology, meaning just a map of bits,
+a spatially mapped array of bits. */
 
     public static final int CAMERA_REQUEST = 0;
-    public static final int SELECT_IMAGE = 1;
+    public static final int SELECT_IMAGE = 1;//premmision to access gallery
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +56,7 @@ CameraGalleryActivity extends AppCompatActivity implements View.OnClickListener 
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
             //if you dont have required permissions ask for it (only required for API 23+)
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+
         }
     }
 
@@ -63,6 +68,7 @@ CameraGalleryActivity extends AppCompatActivity implements View.OnClickListener 
         } else {
             Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(i, SELECT_IMAGE);
+            //chooses an image from the gallery
         }
 
     }
@@ -82,7 +88,7 @@ CameraGalleryActivity extends AppCompatActivity implements View.OnClickListener 
             editor.commit();
 
 
-        } else {
+        } else {//choose an image from the gallery and preview it on the imageview
             if (requestCode == SELECT_IMAGE && resultCode == Activity.RESULT_OK) {
                 Uri targetUri = data.getData();
                 try {
@@ -97,7 +103,7 @@ CameraGalleryActivity extends AppCompatActivity implements View.OnClickListener 
 
     }
 
-    public String saveImage(Bitmap bitmap) {
+    public String saveImage(Bitmap bitmap) {//saves the image in the gallery
         File root = Environment.getExternalStorageDirectory();
 
         String timeStamp = new SimpleDateFormat("yyyMMdd_HHmmss").format(new Date());
@@ -115,7 +121,7 @@ CameraGalleryActivity extends AppCompatActivity implements View.OnClickListener 
         catch (Exception e)
         {
            e.printStackTrace();
-            Toast.makeText(this,"Failed to save image",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Failed to save image",Toast.LENGTH_SHORT).show();//sends a message of the images fails to save
         }
         return filePath;
     }
@@ -141,7 +147,7 @@ CameraGalleryActivity extends AppCompatActivity implements View.OnClickListener 
                 return;
             }
 
-            // other 'case' line to check fosr other
+            // other 'case' line to check for other
             // permissions this app might request
         }
     }

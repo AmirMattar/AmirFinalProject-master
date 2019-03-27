@@ -26,9 +26,12 @@ public class MyIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Notification.Builder builder = new Notification.Builder(this);
+        //the notification builder
         builder.setContentTitle("Good Morning");
         builder.setContentText("new books every day");
+        //the message the notification will show.
         builder.setSmallIcon(R.drawable.bookicon);
+        //the icon that is seen when the notification is sent
         Intent notifyIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         //to be able to launch your activity from the notification

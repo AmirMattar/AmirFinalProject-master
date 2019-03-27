@@ -41,7 +41,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         signupf = findViewById(R.id.signupf);
         signupf.setOnClickListener(this);
 
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();//firebase connector
 
     }
 
@@ -71,7 +71,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {//if signupf button is clicked on, it will check if the username and password match and are found in the database,in addition checks if the username and password bars are empty
         if(v == signupf){
             String user = email.getText().toString();
             String pass = pass2.getText().toString();

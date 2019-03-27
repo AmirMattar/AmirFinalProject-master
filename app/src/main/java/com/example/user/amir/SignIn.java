@@ -46,7 +46,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplication(), SignUp.class);
+                Intent intent = new Intent(getApplication(), SignUp.class);//if clicked on the signup button the user will be sent to the signup page to create an account
                 startActivity(intent);
             }
         });
@@ -86,7 +86,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {//checks if username and password match and if they exist in the database and if the username and password bar are empty a message will be sent to the user that the email and password are empty.
         //createUser
         if (v == signin) {
             String user = username.getText().toString();

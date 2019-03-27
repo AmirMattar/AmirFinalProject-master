@@ -1,3 +1,7 @@
+//SharedPreferences הוא API של Android SDK שמשמש כדי לאחסן ולאחזר העדפות יישום.
+// SharedPreferences הם פשוט קבוצות של ערכי נתונים המאוחסנים בהתמדה, כלומר הנתונים שאוחסנו ב- SharedPreferences יהיו עדיין קיימים גם אם היישום מופסק או מכבים את המכשיר.
+
+
 package com.example.user.amir;
 
 import android.content.SharedPreferences;
@@ -43,7 +47,7 @@ public class SharedActivity extends AppCompatActivity implements View.OnClickLis
 //values saved
         editor.putString("name",etName.getText().toString());
 //commit the changes to the file and save
-        editor.commit();
+        editor.commit();//the command that saves the information.
 
 
 
