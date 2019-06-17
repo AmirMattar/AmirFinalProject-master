@@ -48,7 +48,7 @@ public class WishlistActivity extends AppCompatActivity implements AdapterView.O
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Book book = dataSnapshot.getValue(Book.class);
                 wishlists.add(book);
-                arrayAdapter.notifyDataSetChanged();
+                arrayAdapter.notifyDataSetChanged();//refresh
             }
 
             @Override

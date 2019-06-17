@@ -45,8 +45,8 @@ public class DetailedBookActivity extends AppCompatActivity implements View.OnCl
 
         addwish=findViewById(R.id.addwish);
         addwish.setOnClickListener(this);
-
         
+
     }
 
     @Override
